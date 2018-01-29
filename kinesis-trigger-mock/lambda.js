@@ -4,7 +4,11 @@ exports.handler = function (event, context, callback) {
 
 	ddb.put({
 		TableName: 'chamath-test-dynamo',
-		Item: { 'ID': '001', 'Name': 'Chamath', 'Message': 'Hello from Sigma' }
+		Item: {
+			'ID': '001',
+			'Name': 'Chamath',
+			'Message': '#{event.body}'
+		}
 	}, function (err, data) {
 		if (err) {
 			callback(err, 'Error in executing DynamoDB#putItem');
