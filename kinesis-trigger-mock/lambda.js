@@ -7,7 +7,7 @@ exports.handler = function (event, context, callback) {
 		Item: {
 			'ID': '001',
 			'Name': 'Chamath',
-			'Message': '#{event.body}'
+			'Message': event.body
 		}
 	}, function (err, data) {
 		if (err) {
